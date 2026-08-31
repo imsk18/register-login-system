@@ -1,10 +1,8 @@
-const express = require('express');
-const authRouter = require('./routes/auth.routes');
-const app = express();
+const express = require('express')
+const AuthRouter = require("./routes/auth.routes")
 
+const app = express()
+app.use(express.json())
+app.use("/api/auth",AuthRouter)
 
-// Middleware
-app.use(express.json());
-app.use('/api/auth', authRouter);
-
-module.exports = app;
+module.exports = app
